@@ -1,4 +1,4 @@
-/**
+ /**
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
  * Add your name as an author and the date!
@@ -7,6 +7,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
@@ -18,8 +19,8 @@ import java.util.Collections;
 public class GroupOfCards {
 
     //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
+    protected ArrayList<Card> cards = new ArrayList();
+    protected int size;//the size of the grouping
 
     public GroupOfCards(int size) {
         this.size = size;
@@ -51,5 +52,15 @@ public class GroupOfCards {
     public void setSize(int size) {
         this.size = size;
     }
-
+    
+    @Override
+    public String toString() {
+        Iterator<Card> itCards = cards.iterator();
+        String display = "";
+        while(itCards.hasNext()) {
+            Card card = itCards.next();
+            display += card.toString();
+        }
+        return display;
+    }
 }//end class

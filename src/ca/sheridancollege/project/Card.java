@@ -10,15 +10,34 @@ package ca.sheridancollege.project;
  * game. Students wishing to add to the code should remember to add themselves as a modifier.
  *
  * @author dancye
+ * @author Kyle Welfare, April 2021
  */
 public abstract class Card {
     //default modifier for child classes
+    public enum Suit {
+        HEARTS, DIAMONDS, SPADES, CLUBS
+    }
+    public enum Value {
+        NINE, TEN, JACK, QUEEN, KING, ACE
+    }
+    
+    protected Value value;
+    protected Suit suit;
 
+    public Value getValue() {
+        return value;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+    
     /**
      * Students should implement this method for their specific children classes
      *
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
+   
     @Override
     public abstract String toString();
 
