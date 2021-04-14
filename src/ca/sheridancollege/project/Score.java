@@ -46,5 +46,13 @@ public class Score {
     public void setScoreLimit(int scoreLimit) {
         this.scoreLimit = scoreLimit;
     }
+	
+	public void addScoreTeam1(int amount){
+		team1Score += amount;
+	}
+	
+	public void addScoreTeam2(int amount){
+		team2Score += amount;
+	}
 
 }
