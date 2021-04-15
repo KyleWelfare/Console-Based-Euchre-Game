@@ -20,7 +20,7 @@ public class Score {
 			throw new IllegalArgumentException();
 		}
 		
-        this.team1Score = team1Score;
+        this.team1Score = score;
     }
 
     public int getTeam2Score() {
@@ -37,7 +37,7 @@ public class Score {
 			throw new IllegalArgumentException();
 		}
 		
-        this.team2Score = team2Score;
+        this.team2Score = score;
     }
 
     public String displayScore() {

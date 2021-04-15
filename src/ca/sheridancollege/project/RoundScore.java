@@ -29,7 +29,7 @@ public class RoundScore extends Score {
 	
 	//debug only
 	public String toString(){
-		String out = String.format("Round Score:\nTeam 1 - %s\nTeam2 - %s\n", instance.getTeam1Score(),instance.getTeam2Score());
+		String out = String.format("Round Score:\nTeam 1 - %s\nTeam 2 - %s\n", instance.getTeam1Score(),instance.getTeam2Score());
 		return out;
 		
 	}
