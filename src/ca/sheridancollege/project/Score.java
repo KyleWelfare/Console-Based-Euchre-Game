@@ -14,7 +14,12 @@ public class Score {
      * 
      * @param team1Score
      */
-    public void setTeam1Score(int team1Score) {
+    public void setTeam1Score(int score) throws IllegalArgumentException{
+		if(score > scoreLimit){
+			System.out.println("Input score cannot exceed max score limit");
+			throw new IllegalArgumentException();
+		}
+		
         this.team1Score = team1Score;
     }
 
@@ -26,7 +31,12 @@ public class Score {
      * 
      * @param team2Score
      */
-    public void setTeam2Score(int team2Score) {
+    public void setTeam2Score(int score) throws IllegalArgumentException{
+		if(score > scoreLimit){
+			System.out.println("Input score cannot exceed max score limit");
+			throw new IllegalArgumentException();
+		}
+		
         this.team2Score = team2Score;
     }
 

@@ -26,5 +26,11 @@ public class RoundScore extends Score {
 		setTeam2Score(0);
 		setScoreLimit(5);
 	}
-
+	
+	//debug only
+	public String toString(){
+		String out = String.format("Round Score:\nTeam 1 - %s\nTeam2 - %s\n", instance.getTeam1Score(),instance.getTeam2Score());
+		return out;
+		
+	}
 }

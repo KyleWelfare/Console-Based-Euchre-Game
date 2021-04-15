@@ -18,5 +18,13 @@ public class GameScore extends Score {
 		
 		return instance;
 	}
+	
+	
+	//debug only
+	public String toString(){
+		String out = String.format("Game Score:\nTeam 1 - %s\nTeam2 - %s\n", instance.getTeam1Score(),instance.getTeam2Score());
+		return out;
+		
+	}
 
 }
