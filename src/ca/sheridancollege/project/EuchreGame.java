@@ -7,33 +7,80 @@ import ca.sheridancollege.project.RoundScore;
 import java.util.Scanner;
 
 public class EuchreGame extends Game {
+	
+	//dunno if we should keep this but it works and its being used for debug
+	public GameScore gameScore;
+	public RoundScore roundScore;
+	
     public static void main (String[] args) {
-        
+		
+		//maybe some verification on lone/maker
+		//cannot be lone without being maker etc.
+		//thats for someone else to do elsewhere
+		
+		
+		
         //testing/debugging - you can get rid of all this
-        Value[] cardValues = Value.values();
-        Suit[] cardSuits = Suit.values();
-        final int NUM_PLAYERS = 4;
-        final int HAND_SIZE = 5;
+		
+		EuchreGame game = new EuchreGame();
+		game.initialize();
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println(GameScore.getInstance().getScoreLimit());
+		System.out.println(RoundScore.getInstance().getScoreLimit());
+		//set scores
+		System.out.println("team1 score");
+		RoundScore.getInstance().setTeam1Score(input.nextInt());
+		
+		System.out.println("team2 score");
+		RoundScore.getInstance().setTeam2Score(input.nextInt());
+		
+		
+		//output
+		System.out.println(GameScore.getInstance().toString());
+		System.out.println(RoundScore.getInstance().toString());
+		
+		//set states
+		System.out.println("lone1");
+		boolean l1 = input.nextBoolean();
+		System.out.println("lone2");
+		boolean l2 = input.nextBoolean();
+		System.out.println("make1");
+		boolean m1 = input.nextBoolean();
+		System.out.println("make2");
+		boolean m2 = input.nextBoolean();
+		
+		game.declareWinner(l1, l2, m1, m2);
         
-        EuchrePlayer[] players = new EuchrePlayer[NUM_PLAYERS];
-        for (int i = 0; i<players.length; i++) {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter a name for Player " + (i+1) + ":");
-            String name = input.nextLine();
-            players[i] = new EuchrePlayer(name);
-        }
-        //Hand[] hands = new Hand[NUM_PLAYERS];
-        
-        EuchreDeck.getInstance().resetDeck(cardValues, cardSuits);
-        System.out.println(EuchreDeck.getInstance().toString());
-
-        EuchreDeck.getInstance().deal(players, HAND_SIZE);
-       
-        for (EuchrePlayer player : players) {
-            System.out.println(player.getHand().toString());
-        }
-        
-        System.out.println(EuchreDeck.getInstance().toString());
+		//output
+		System.out.println(GameScore.getInstance().toString());
+		System.out.println(RoundScore.getInstance().toString());
+		
+//        Value[] cardValues = Value.values();
+//        Suit[] cardSuits = Suit.values();
+//        final int NUM_PLAYERS = 4;
+//        final int HAND_SIZE = 5;
+//        
+//        EuchrePlayer[] players = new EuchrePlayer[NUM_PLAYERS];
+//        for (int i = 0; i<players.length; i++) {
+//            Scanner input = new Scanner(System.in);
+//            System.out.println("Enter a name for Player " + (i+1) + ":");
+//            String name = input.nextLine();
+//            players[i] = new EuchrePlayer(name);
+//        }
+//        //Hand[] hands = new Hand[NUM_PLAYERS];
+//        
+//        EuchreDeck.getInstance().resetDeck(cardValues, cardSuits);
+//        System.out.println(EuchreDeck.getInstance().toString());
+//
+//        EuchreDeck.getInstance().deal(players, HAND_SIZE);
+//       
+//        for (EuchrePlayer player : players) {
+//            System.out.println(player.getHand().toString());
+//        }
+//        
+//        System.out.println(EuchreDeck.getInstance().toString());
     }
     
     public EuchreGame () {
@@ -44,8 +91,8 @@ public class EuchreGame extends Game {
 	//initialize values and stuff i guess
 	public void initialize(){
 		//Initialize scores
-		GameScore.getInstance();
-		RoundScore.getInstance();
+		gameScore = GameScore.getInstance();
+		roundScore = RoundScore.getInstance();
 		
 		EuchreDeck.getInstance();
 		
@@ -56,8 +103,16 @@ public class EuchreGame extends Game {
       
     }
 
-    @Override
-    public void declareWinner() {
+	//remove this afterwards, exists to fulfill abstract requirements
+	@Override
+	public void declareWinner(){
+	
+	}
+	
+	//debug/testing setup
+	//remove above, uncomment override, remove all args when actually implementing
+    //@Override
+    public void declareWinner(boolean t1L, boolean t2L, boolean t1M, boolean t2M) {
 		/*
 		Score Reference
 		Makers win 3-4 tricks - 1 point
@@ -71,14 +126,14 @@ public class EuchreGame extends Game {
         //Maybe check if scores are valid before determining the winner, but idk what criteria that would be if we do that
 		
 		//cache, maybe make global
-		RoundScore roundScore = RoundScore.getInstance();
-		GameScore gameScore = GameScore.getInstance();
+//		RoundScore roundScore = RoundScore.getInstance();
+//		GameScore gameScore = GameScore.getInstance();
 		
 		//PLACEHOLDERS
-		boolean t1Lone = true;
-		boolean t2Lone = true;
-		boolean t1IsMaker = true;
-		boolean t2IsMaker = true;
+		boolean t1Lone = t1L;
+		boolean t2Lone = t2L;
+		boolean t1IsMaker = t1M;
+		boolean t2IsMaker = t2M;
 		
 		
 		//Majority means >= 3 points
@@ -133,39 +188,6 @@ public class EuchreGame extends Game {
 				gameScore.addScoreTeam2(2);
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-//		//Majority means >= 3 points
-//		//Team 1 has majority
-//		if(roundScore.getTeam1Score() > roundScore.getTeam2Score()){
-//			//Add 2 points for ace
-//			if(roundScore.getTeam1Score() == 5){
-//				//4 points for lone ace
-//				if(lone)
-//					gameScore.setTeam1Score(gameScore.getTeam1Score() + 4);
-//				else
-//					gameScore.setTeam1Score(gameScore.getTeam1Score() + 2);
-//			}
-//			//Add 1 point for winning 3-4 tricks
-//			else
-//				gameScore.setTeam1Score(gameScore.getTeam1Score() + 1);
-//		}
-//		
-//		//Team 2 has majority
-//		else{
-//			//Add 2 points for winning all 5 tricks
-//			if(roundScore.getTeam2Score() == 5)
-//				gameScore.setTeam2Score(gameScore.getTeam2Score() + 2);
-//			//Add 1 point for winning 3-4 tricks
-//			else
-//				gameScore.setTeam2Score(gameScore.getTeam2Score() + 1);
-//			
-//		}
 		
     }
 }
