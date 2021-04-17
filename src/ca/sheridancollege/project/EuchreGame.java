@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class EuchreGame extends Game {
 	
 	//dunno if we should keep this but it works and its being used for debug
-	public GameScore gameScore;
-	public RoundScore roundScore;
+//	public GameScore gameScore;
+//	public RoundScore roundScore;
 	
     public static void main (String[] args) {
 		
@@ -90,9 +90,9 @@ public class EuchreGame extends Game {
 	
 	//initialize values and stuff i guess
 	public void initialize(){
-		//Initialize scores
-		gameScore = GameScore.getInstance();
-		roundScore = RoundScore.getInstance();
+//		//Initialize scores
+//		gameScore = GameScore.getInstance();
+//		roundScore = RoundScore.getInstance();
 		
 		EuchreDeck.getInstance();
 		
@@ -129,6 +129,10 @@ public class EuchreGame extends Game {
 //		RoundScore roundScore = RoundScore.getInstance();
 //		GameScore gameScore = GameScore.getInstance();
 		
+
+
+
+
 		//PLACEHOLDERS
 		boolean t1Lone = t1L;
 		boolean t2Lone = t2L;
