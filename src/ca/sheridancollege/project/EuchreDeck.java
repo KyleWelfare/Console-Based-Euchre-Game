@@ -2,6 +2,7 @@ package ca.sheridancollege.project;
 
 import ca.sheridancollege.project.Card.Suit;
 import ca.sheridancollege.project.Card.Value;
+import java.util.ArrayList;
 
 public class EuchreDeck extends GroupOfCards {
 
@@ -25,18 +26,18 @@ public class EuchreDeck extends GroupOfCards {
         }
         for (int i = 0; i < cardSuits.length; i++) {
             for (int j = 0; j < cardValues.length; j++) {
-                cards.add(new EuchreCard(cardValues[j], cardSuits[i], j + 1));
+                cards.add(new EuchreCard(cardValues[j], cardSuits[i], j + 9));
             }
         }
     }
 
-    public void deal(EuchrePlayer[] players, int handSize) {
+    public void deal(ArrayList<Player> players) {
         shuffle();
 
-        for (int i = 0; i < players.length; i++) {
-            players[i].setHand(new Hand(handSize));
-            for (int j = 0; j < players[i].getHand().size; j++) {
-                players[i].getHand().getCards().add(this.cards.get(j));
+        for (int i = 0; i < players.size(); i++) {
+            ((EuchrePlayer)players.get(i)).setHand(new Hand());
+            for (int j = 0; j <  ((EuchrePlayer)players.get(i)).getHand().size; j++) {
+                ((EuchrePlayer)players.get(i)).getHand().getCards().add(this.cards.get(j));
                 this.cards.remove(j);
             }
         }

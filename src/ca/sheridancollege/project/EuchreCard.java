@@ -17,10 +17,15 @@ public class EuchreCard extends Card{
     public int getWeightedValue() {
         return weightedValue;
     }
-        
+
+    public void setWeightedValue(int weightedValue) {
+        this.weightedValue += weightedValue;
+    }
+            
     @Override
     public String toString() {
         return getValue() + " of " + getSuit() + "\n";
     }
+    
     
 }

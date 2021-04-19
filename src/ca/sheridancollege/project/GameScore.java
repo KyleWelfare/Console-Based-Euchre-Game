@@ -8,8 +8,8 @@ public class GameScore extends Score {
 	//10 point win limit
 	private final int MAX_SCORE = 10;
 	
-    private GameScore() {
-		setScoreLimit(MAX_SCORE);
+    public GameScore() {
+	setScoreLimit(MAX_SCORE);
     }
 	
 	public static GameScore getInstance(){

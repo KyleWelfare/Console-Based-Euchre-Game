@@ -26,6 +26,10 @@ public class RoundScore extends Score {
 		setTeam2Score(0);
 		setScoreLimit(5);
 	}
+        
+        private void calculateTricks() {
+            
+        }
 	
 	//debug only
 	public String toString(){

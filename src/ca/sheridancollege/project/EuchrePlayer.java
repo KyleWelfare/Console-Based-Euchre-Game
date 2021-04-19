@@ -8,9 +8,11 @@ public class EuchrePlayer extends Player{
     
     private boolean isDealer;
     private Hand hand;
+    private int id;
     
-    public EuchrePlayer(String name) {
+    public EuchrePlayer(String name, int id) {
         super(name);
+        this.id = id;
     }
 
     public Hand getHand() {

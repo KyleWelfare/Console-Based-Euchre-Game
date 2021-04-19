@@ -12,50 +12,50 @@ public class EuchreGame extends Game {
 //	public GameScore gameScore;
 //	public RoundScore roundScore;
 	
-    public static void main (String[] args) {
-		
-		//maybe some verification on lone/maker
-		//cannot be lone without being maker etc.
-		//thats for someone else to do elsewhere
-		
-		
-		
-        //testing/debugging - you can get rid of all this
-		
-		EuchreGame game = new EuchreGame();
-		game.initialize();
-		
-		Scanner input = new Scanner(System.in);
-		
-		System.out.println(GameScore.getInstance().getScoreLimit());
-		System.out.println(RoundScore.getInstance().getScoreLimit());
-		//set scores
-		System.out.println("team1 score");
-		RoundScore.getInstance().setTeam1Score(input.nextInt());
-		
-		System.out.println("team2 score");
-		RoundScore.getInstance().setTeam2Score(input.nextInt());
-		
-		
-		//output
-		System.out.println(GameScore.getInstance().toString());
-		System.out.println(RoundScore.getInstance().toString());
-		
-		//set states
-		System.out.println("lone1");
-		boolean l1 = input.nextBoolean();
-		System.out.println("lone2");
-		boolean l2 = input.nextBoolean();
-		System.out.println("make1");
-		boolean m1 = input.nextBoolean();
-		System.out.println("make2");
-		boolean m2 = input.nextBoolean();
-		
-		game.declareWinner(l1, l2, m1, m2);
-        
-		//output
-		System.out.println(GameScore.getInstance().toString());
-		System.out.println(RoundScore.getInstance().toString());
+//    public static void main (String[] args) {
+//		
+//		//maybe some verification on lone/maker
+//		//cannot be lone without being maker etc.
+//		//thats for someone else to do elsewhere
+//		
+//		
+//		
+//        //testing/debugging - you can get rid of all this
+//		
+//		EuchreGame game = new EuchreGame();
+//		game.initialize();
+//		
+//		Scanner input = new Scanner(System.in);
+//		
+//		System.out.println(GameScore.getInstance().getScoreLimit());
+//		System.out.println(RoundScore.getInstance().getScoreLimit());
+//		//set scores
+//		System.out.println("team1 score");
+//		RoundScore.getInstance().setTeam1Score(input.nextInt());
+//		
+//		System.out.println("team2 score");
+//		RoundScore.getInstance().setTeam2Score(input.nextInt());
+//		
+//		
+//		//output
+//		System.out.println(GameScore.getInstance().toString());
+//		System.out.println(RoundScore.getInstance().toString());
+//		
+//		//set states
+//		System.out.println("lone1");
+//		boolean l1 = input.nextBoolean();
+//		System.out.println("lone2");
+//		boolean l2 = input.nextBoolean();
+//		System.out.println("make1");
+//		boolean m1 = input.nextBoolean();
+//		System.out.println("make2");
+//		boolean m2 = input.nextBoolean();
+//		
+//		game.declareWinner(l1, l2, m1, m2);
+//        
+//		//output
+//		System.out.println(GameScore.getInstance().toString());
+//		System.out.println(RoundScore.getInstance().toString());
 		
 //        Value[] cardValues = Value.values();
 //        Suit[] cardSuits = Suit.values();
@@ -81,33 +81,43 @@ public class EuchreGame extends Game {
 //        }
 //        
 //        System.out.println(EuchreDeck.getInstance().toString());
+//    }
+    
+    private GameScore gameScore;
+    
+    public EuchreGame (int currentGameNumber) {
+        super("Euchre Game #", currentGameNumber);
+        this.gameScore = new GameScore();        
+    }
+
+    public GameScore getGameScore() {
+        return gameScore;
+    }
+
+    public void setGameScore(GameScore gameScore) {
+        this.gameScore = gameScore;
     }
     
-    public EuchreGame () {
-        super("Euchre Game #");
-    }
-	
-	
 	//initialize values and stuff i guess
-	public void initialize(){
-//		//Initialize scores
-//		gameScore = GameScore.getInstance();
-//		roundScore = RoundScore.getInstance();
-		
-		EuchreDeck.getInstance();
-		
-	}
+//	public void initialize(){
+//	
+//		EuchreDeck.getInstance();
+//		
+//	}
     
     @Override
     public void play() {
       
     }
+    
+    public String welcomeMessage() {
+        return ("Welcome to " + this.getName() + "!");
+    }
 
 	//remove this afterwards, exists to fulfill abstract requirements
-	@Override
-	public void declareWinner(){
-	
-	}
+    @Override
+    public void declareWinner(){
+    }
 	
 	//debug/testing setup
 	//remove above, uncomment override, remove all args when actually implementing

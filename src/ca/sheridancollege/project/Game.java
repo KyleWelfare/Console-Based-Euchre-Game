@@ -20,10 +20,9 @@ public abstract class Game {
     private ArrayList<Player> players;// the players of the game
     private int currentGameNumber = 1;
 
-    public Game(String name) {
+    public Game(String name, int currentGameNumber) {
         this.name = name + currentGameNumber;
-        players = new ArrayList();
-        currentGameNumber++;
+        players = new ArrayList();       
     }
 
     /**

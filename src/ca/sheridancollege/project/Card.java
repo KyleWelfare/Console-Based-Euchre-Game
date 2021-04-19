@@ -41,4 +41,33 @@ public abstract class Card {
     @Override
     public abstract String toString();
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Card other = (Card) obj;
+        if (this.value != other.value) {
+            return false;
+        }
+        if (this.suit != other.suit) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
 }
