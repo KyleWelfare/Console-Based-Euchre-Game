@@ -11,10 +11,16 @@ public class EuchreRound {
     private Suit trumpSuit;
     private Card rightBower;
     private Card leftBower;
-    private GroupOfCards cardsPlayed;
+    private RoundScore roundScore;
+    private int makerTeamId;
 
     public EuchreRound(EuchrePlayer dealer) {
         this.dealer = dealer;
+        this.roundScore = new RoundScore();
+    }
+
+    public RoundScore getRoundScore() {
+        return roundScore;
     }
 
     public Suit getTrumpSuit() {
@@ -45,10 +51,6 @@ public class EuchreRound {
         return this.rightBower;
     }
 
-    public GroupOfCards getCardsPlayed() {
-        return cardsPlayed;
-    }
-
 
     /**
      *
@@ -70,22 +72,35 @@ public class EuchreRound {
         this.leftBower = leftBower;
     }
 
+    public int getMakerTeamId() {
+        return makerTeamId;
+    }
+
+    public void setMakerTeamId(int makerTeamId) {
+        this.makerTeamId = makerTeamId;
+    }
+    
+    
+
     public void promptUser(ArrayList<Player> players, int playerIndex) {
+        System.out.println("");
+        System.out.println(players.get(playerIndex).getName());
         System.out.println("Your Hand: ");
-        ((EuchrePlayer) players.get(playerIndex)).getHand().toString();
+        System.out.println(((EuchrePlayer) players.get(playerIndex)).getHand().toString());
 
         System.out.println("Top Card of Deck: ");
         System.out.println(EuchreDeck.getInstance().cards.get(0).toString());
 
         System.out.println("Choose from the following options: ");
-        System.out.println("[1] Order Up (Set trump suit to " + EuchreDeck.getInstance().cards.get(0).getSuit() + "and dealer picks up top card.");
+        System.out.println("[1] Order Up (Set trump suit to " + EuchreDeck.getInstance().cards.get(0).getSuit() + " and dealer picks up top card.");
         System.out.println("[2] Pass.");
     }
 
-    public void orderUp() {
+    public void orderUp() {        
+        System.out.println(dealer.getName());
         System.out.println("Choose a card to remove from your hand: ");
         System.out.println("Your Hand: ");
-        dealer.getHand().toString();
+        System.out.println(dealer.getHand().toString());
         
         Scanner input = new Scanner(System.in);
               
@@ -93,8 +108,9 @@ public class EuchreRound {
             System.out.println("Make your selection by entering the corresponding number");
             int option = input.nextInt();
             
-            if (option > 0 && option < 6) {
-                dealer.getHand().getCards().remove(option);
+            if (option > 0 && option < 6) {                
+                dealer.getHand().getCards().remove(option-1);
+                dealer.getHand().getCards().add(EuchreDeck.getInstance().cards.get(0));
                 break;
             }
             else {
@@ -126,15 +142,16 @@ public class EuchreRound {
         setLeftBower(new EuchreCard(Value.JACK, leftBowerSuit, JACK_WEIGHTED_VALUE));
         
         for (int i = 0; i < players.size(); i++) {
-            for (int j = 0; j < ((EuchrePlayer)players.get(i)).getHand().size; j++) {
-                if (((EuchrePlayer)players.get(i)).getHand().getCards().get(j).equals(this.rightBower)) {
-                    ((EuchreCard)((EuchrePlayer)players.get(i)).getHand().getCards().get(j)).setWeightedValue(500);
+            ArrayList<Card> cards = ((EuchrePlayer)players.get(i)).getHand().getCards();
+            for (int j = 0; j < ((EuchrePlayer)players.get(i)).getHand().getCards().size(); j++) {
+                if (cards.get(j).equals(this.rightBower)) {
+                    ((EuchreCard)cards.get(j)).setWeightedValue(500);
                 }
                 if (((EuchrePlayer)players.get(i)).getHand().getCards().get(j).equals(this.leftBower)) {
-                    ((EuchreCard)((EuchrePlayer)players.get(i)).getHand().getCards().get(j)).setWeightedValue(300);
+                    ((EuchreCard)cards.get(j)).setWeightedValue(300);
                 }
                 if (((EuchrePlayer)players.get(i)).getHand().getCards().get(j).getSuit() == trumpSuit) {
-                    ((EuchreCard)((EuchrePlayer)players.get(i)).getHand().getCards().get(j)).setWeightedValue(100);
+                    ((EuchreCard)cards.get(j)).setWeightedValue(100);
                 }                
             } 
         }
