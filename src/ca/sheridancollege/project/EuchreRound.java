@@ -5,6 +5,12 @@ import ca.sheridancollege.project.Card.Value;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * A class representing a single round of Euchre (5 tricks)
+ *
+ * @author Kyle Welfare, April 2021
+ */
+
 public class EuchreRound {
 
     private EuchrePlayer dealer;
@@ -83,8 +89,9 @@ public class EuchreRound {
     
 
     public void promptUser(ArrayList<Player> players, int playerIndex) {
-        System.out.println("");
-        System.out.println(players.get(playerIndex).getName());
+        System.out.println("------------------------------");
+        System.out.println(players.get(playerIndex).getName() + "'s turn:");
+        System.out.println("------------------------------");
         System.out.println("Your Hand: ");
         System.out.println(((EuchrePlayer) players.get(playerIndex)).getHand().toString());
 
@@ -92,12 +99,14 @@ public class EuchreRound {
         System.out.println(EuchreDeck.getInstance().cards.get(0).toString());
 
         System.out.println("Choose from the following options: ");
-        System.out.println("[1] Order Up (Set trump suit to " + EuchreDeck.getInstance().cards.get(0).getSuit() + " and dealer picks up top card.");
+        System.out.println("[1] Order Up (Set trump suit to " + EuchreDeck.getInstance().cards.get(0).getSuit() + " and dealer picks up top card.)");
         System.out.println("[2] Pass.");
     }
 
     public void orderUp() {        
-        System.out.println(dealer.getName());
+        System.out.println("------------------------------");
+        System.out.println(dealer.getName() + "'s turn:");
+        System.out.println("------------------------------");
         System.out.println("Choose a card to remove from your hand: ");
         System.out.println("Your Hand: ");
         System.out.println(dealer.getHand().toString());
@@ -105,7 +114,7 @@ public class EuchreRound {
         Scanner input = new Scanner(System.in);
               
         while (true) {
-            System.out.println("Make your selection by entering the corresponding number");
+            System.out.println("Make your selection by entering the corresponding number:");
             int option = input.nextInt();
             
             if (option > 0 && option < 6) {                

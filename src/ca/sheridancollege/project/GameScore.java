@@ -1,5 +1,11 @@
 package ca.sheridancollege.project;
 
+/**
+ * A subclass of Score representing the score of a Euchre game
+ *
+ * @author Kyle Welfare, April 2021
+ */
+
 public class GameScore extends Score {
 
     //10 point win limit

@@ -1,7 +1,10 @@
 package ca.sheridancollege.project;
 
-import ca.sheridancollege.project.GameScore;
-
+/**
+ * A class representing a single game of Euchre
+ *
+ * @author Kyle Welfare, April 2021
+ */
 public class EuchreGame extends Game {
 
     private GameScore gameScore;
@@ -30,5 +33,14 @@ public class EuchreGame extends Game {
 
     @Override
     public void declareWinner() {
+        if (this.getGameScore().getTeam1Score() >= 10) {
+            System.out.println("\n------------------------------------------------------------");
+            System.out.println("Congratulations Team 1, you win!");
+            System.out.println("------------------------------------------------------------\n");
+        } else if (this.getGameScore().getTeam2Score() >= 10) {
+            System.out.println("\n------------------------------------------------------------");
+            System.out.println("Congratulations Team 2, you win!");
+            System.out.println("------------------------------------------------------------\n");
+        }
     }
 }

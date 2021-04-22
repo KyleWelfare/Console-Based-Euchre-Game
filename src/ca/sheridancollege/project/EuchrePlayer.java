@@ -1,9 +1,11 @@
 package ca.sheridancollege.project;
 
 /**
+ * A subclass of Player representing a Euchre player 
  *
- * @author kyled
+ * @author Kyle Welfare, April 2021
  */
+
 public class EuchrePlayer extends Player{
     
     private boolean isDealer;

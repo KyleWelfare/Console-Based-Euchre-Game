@@ -15,6 +15,7 @@ import java.util.Iterator;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
+ * @author Kyle Welfare, April 2021
  */
 public class GroupOfCards {
 

@@ -2,7 +2,7 @@ package ca.sheridancollege.project;
 
 /**
  *
- * @author kyled
+ * @author Kyle Welfare, April 2021
  */
 public class EuchreCard extends Card{
 
@@ -26,13 +26,7 @@ public class EuchreCard extends Card{
     public String toString() {
         return getValue() + " of " + getSuit() + "\n";
     }
-    
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
 
     @Override
     public boolean equals(Object obj) {

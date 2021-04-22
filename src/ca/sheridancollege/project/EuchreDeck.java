@@ -3,13 +3,18 @@ package ca.sheridancollege.project;
 import ca.sheridancollege.project.Card.Suit;
 import ca.sheridancollege.project.Card.Value;
 import java.util.ArrayList;
+/**
+ * A singleton class representing the deck of cards used for EuchrePlayGame
+ *
+ * @author Kyle Welfare, April 2021
+ */
 
 public class EuchreDeck extends GroupOfCards {
 
     private static EuchreDeck instance = null; // this is our one global Object
     private final static int DECK_SIZE = 24;
 
-    public EuchreDeck(int size) {
+    private EuchreDeck(int size) {
         super(size);
     }
 

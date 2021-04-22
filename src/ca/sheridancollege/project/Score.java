@@ -1,5 +1,11 @@
 package ca.sheridancollege.project;
 
+/**
+ * A superclass for Euchre scores
+ *
+ * @author Kyle Welfare, April 2021
+ */
+
 public class Score {
 
     private int team1Score;

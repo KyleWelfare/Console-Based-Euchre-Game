@@ -1,5 +1,11 @@
 package ca.sheridancollege.project;
 
+/**
+ * A subclass of GroupOfCards representing a Euchre player's hand of cards
+ *
+ * @author Kyle Welfare, April 2021
+ */
+
 import java.util.Iterator;
 
 public class Hand extends GroupOfCards {

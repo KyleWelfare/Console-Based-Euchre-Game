@@ -3,6 +3,12 @@ package ca.sheridancollege.project;
 import ca.sheridancollege.project.Card.Suit;
 import java.util.ArrayList;
 
+/**
+ * A class representing a single trick of Euchre 
+ *
+ * @author Kyle Welfare, April 2021
+ */
+
 public class EuchreTrick {    
     private EuchreRound currRound;
     private Suit leadSuit = null;
@@ -27,8 +33,9 @@ public class EuchreTrick {
     
     
     public void promptUser(ArrayList<Player> players, int playerIndex) {
-        System.out.println("");
-        System.out.println(players.get(playerIndex).getName());
+        System.out.println("------------------------------");
+        System.out.println(players.get(playerIndex).getName() + "'s turn:");
+        System.out.println("------------------------------");
         System.out.println("Trump Suit: " + currRound.getTrumpSuit());
         if (this.leadSuit != null)
             System.out.println("Leading Suit: " + this.leadSuit);

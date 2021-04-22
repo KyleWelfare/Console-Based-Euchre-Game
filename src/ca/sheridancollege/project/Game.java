@@ -13,12 +13,12 @@ import java.util.ArrayList;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
+ * @author Kyle Welfare, April 2021
  */
 public abstract class Game {
 
     private final String name;//the title of the game
     private ArrayList<Player> players;// the players of the game
-    private int currentGameNumber = 1;
 
     public Game(String name, int currentGameNumber) {
         this.name = name + currentGameNumber;
