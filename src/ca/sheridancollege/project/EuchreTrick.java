@@ -7,6 +7,9 @@ import java.util.ArrayList;
  * A class representing a single trick of Euchre 
  *
  * @author Kyle Welfare, April 2021
+ * @author Jacob Bullock, April 2021
+ * @author Owen Barrington, April 2021
+ * @author Chris Yeung, April 2021
  */
 
 public class EuchreTrick {    

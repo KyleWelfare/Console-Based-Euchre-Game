@@ -7,7 +7,10 @@ import java.util.Scanner;
 /**
  * Class containing main method to run program for games of Euchre
  *
- * @author kyled
+ * @author Kyle Welfare, April 2021
+ * @author Jacob Bullock, April 2021
+ * @author Owen Barrington, April 2021
+ * @author Chris Yeung, April 2021
  */
 public class EuchrePlayGame {
 

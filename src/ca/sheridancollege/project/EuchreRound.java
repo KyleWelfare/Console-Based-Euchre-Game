@@ -9,6 +9,9 @@ import java.util.Scanner;
  * A class representing a single round of Euchre (5 tricks)
  *
  * @author Kyle Welfare, April 2021
+ * @author Jacob Bullock, April 2021
+ * @author Owen Barrington, April 2021
+ * @author Chris Yeung, April 2021
  */
 
 public class EuchreRound {

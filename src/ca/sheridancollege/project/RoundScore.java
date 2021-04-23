@@ -4,6 +4,9 @@ package ca.sheridancollege.project;
  * A subclass of Score representing the score of a Euchre round (5 tricks)
  *
  * @author Kyle Welfare, April 2021
+ * @author Jacob Bullock, April 2021
+ * @author Owen Barrington, April 2021
+ * @author Chris Yeung, April 2021
  */
 
 public class RoundScore extends Score {

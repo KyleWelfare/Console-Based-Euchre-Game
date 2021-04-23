@@ -11,6 +11,9 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  * @author Kyle Welfare, April 2021
+ * @author Jacob Bullock, April 2021
+ * @author Owen Barrington, April 2021
+ * @author Chris Yeung, April 2021
  */
 public abstract class Card {
     //default modifier for child classes
