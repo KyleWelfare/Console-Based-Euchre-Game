@@ -19,10 +19,6 @@ public class Score {
         return this.team1Score;
     }
 
-    /**
-     *
-     * @param team1Score
-     */
     public void setTeam1Score(int score) {
         this.team1Score = score;
     }
@@ -31,10 +27,6 @@ public class Score {
         return this.team2Score;
     }
 
-    /**
-     *
-     * @param team2Score
-     */
     public void setTeam2Score(int score) throws IllegalArgumentException {
         if (score > scoreLimit) {
             System.out.println("Input score cannot exceed max score limit");
@@ -44,19 +36,10 @@ public class Score {
         this.team2Score = score;
     }
 
-    public String displayScore() {
-        // TODO - implement Score.displayScore
-        throw new UnsupportedOperationException();
-    }
-
     public int getScoreLimit() {
         return this.scoreLimit;
     }
 
-    /**
-     *
-     * @param scoreLimit
-     */
     public void setScoreLimit(int scoreLimit) {
         this.scoreLimit = scoreLimit;
     }

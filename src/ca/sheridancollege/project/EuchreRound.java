@@ -36,10 +36,6 @@ public class EuchreRound {
         return this.trumpSuit;
     }
 
-    /**
-     *
-     * @param trumpSuit
-     */
     public void setTrumpSuit(Suit trumpSuit) {
         this.trumpSuit = trumpSuit;
     }
@@ -48,10 +44,6 @@ public class EuchreRound {
         return this.dealer;
     }
 
-    /**
-     *
-     * @param dealer
-     */
     public void setDealer(EuchrePlayer dealer) {
         this.dealer = dealer;
     }
@@ -60,11 +52,6 @@ public class EuchreRound {
         return this.rightBower;
     }
 
-
-    /**
-     *
-     * @param rightBower
-     */
     public void setRightBower(Card rightBower) {
         this.rightBower = rightBower;
     }
@@ -73,10 +60,6 @@ public class EuchreRound {
         return this.leftBower;
     }
 
-    /**
-     *
-     * @param leftBower
-     */
     public void setLeftBower(Card leftBower) {
         this.leftBower = leftBower;
     }
